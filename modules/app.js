@@ -38,14 +38,19 @@
 
 // Event
 
-const EventEmitter = require("events");
+// const EventEmitter = require("events");
 
-const emitter = new EventEmitter();
+// const emitter = new EventEmitter();
+
+// Raise an event
+// emitter.emit("messageLogged", { id: 3, url: "http://" });
+
+const Logger = require("./logger");
+const logger = new Logger();
 
 // Register a listener
-emitter.on("messageLogged", (event) => {
+logger.on("messageLogged", (event) => {
   console.log("Listener called", event);
 });
 
-// Raise an event
-emitter.emit("messageLogged", { id: 3, url: "http://" });
+logger.log("message");
