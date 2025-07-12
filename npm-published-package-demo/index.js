@@ -1,5 +1,7 @@
 const lion = require("lion-lib-node-course");
 
-const result = lion.add(1, 2);
+const additionResult = lion.add(1, 2);
+const multiplicationResult = lion.mulitply(3, 4);
 
-console.log(result);
+console.log(additionResult);
+console.log(multiplicationResult);

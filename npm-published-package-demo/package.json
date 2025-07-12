@@ -11,6 +11,6 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "lion-lib-node-course": "^1.0.0"
+    "lion-lib-node-course": "^1.1.0"
   }
 }
