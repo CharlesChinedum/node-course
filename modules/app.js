@@ -1,3 +1,7 @@
+// @: Modules
+
+//@: Path and Os
+
 // const path = require("path");
 // const os = require("os");
 // const pathName = path.parse(__filename);
@@ -23,7 +27,7 @@
 // console.log(`Uptime: ${uptime / 60 / 60} hours`);
 // console.log(`Uptime: ${uptime / 60 / 60 / 24} days`);
 
-// File System module
+//@: File System module
 
 // const fs = require("fs");
 
@@ -36,7 +40,7 @@
 
 // console.log("Files:", files);
 
-// Event
+//@: Event
 
 // const EventEmitter = require("events");
 
@@ -45,12 +49,36 @@
 // Raise an event
 // emitter.emit("messageLogged", { id: 3, url: "http://" });
 
-const Logger = require("./logger");
-const logger = new Logger();
+// const Logger = require("./logger");
+// const logger = new Logger();
 
-// Register a listener
-logger.on("messageLogged", (event) => {
-  console.log("Listener called", event);
+// // Register a listener
+// logger.on("messageLogged", (event) => {
+//   console.log("Listener called", event);
+// });
+
+// logger.log("message");
+
+//@: HTTP
+
+const http = require("http");
+
+const server = http.createServer((req, res) => {
+  if (req.url === "/") {
+    res.write("Hello chief");
+    res.end();
+  }
+
+  if (req.url === "/api/courses") {
+    res.write(JSON.stringify([1, 2, 3, 4, { 1: "test" }]));
+    res.end();
+  }
 });
 
-logger.log("message");
+// server.on("connection", (socket) => {
+//   console.log("New connection...");
+// });
+
+server.listen(3000);
+
+console.log("Hi, chief, listening on port 3000...");
